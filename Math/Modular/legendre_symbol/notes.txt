@@ -1,0 +1,78 @@
+The quadratic residues modulo n are simply the squares modulo n. 
+(Note: this is a concept of modular arithmetic, so I'll not write 
+"mod n" or "mod p" after each line--consider this as implicit).
+
+For example, for n = 15 (n need not be a prime), the elements of Z_15 
+(the residue classes modulo 15) are 0, 1, ... 14.  If we look at the 
+squares of these elements, we get the table:
+
+  x  |  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14
+ ----+---------------------------------------------
+ x^2 |  0  1  4  9  1 10  6  4  4  6 10  1  9  4  1
+
+(For example, in the 6th column, we have 5^2 = 25 = 10 (mod 15)).
+
+The elements in the second row are the squares modulo 15: {0, 1, 4, 
+6, 9, and 10}; these numbers are called quadratic residues (mod 15), 
+because, if q is one of these numbers, the equation:
+
+  x^2 = q (mod 15)
+
+has at least one solution (to find solutions, look for q in the second 
+row; the solutions are the corresponding numbers in the first row).  
+For example, q = 4 is a quadratic residue, since 4 appears in the 
+second row of the table.  The solutions of the equation x^4 = 4 are 
+the numbers in the first row above the 4's in the second row, in this 
+case 2, 7, 8, and 13 (note that this second-degree equation has more 
+than 2 solutions--this is because 15 is not prime).
+
+On the other hand, 7 is not a quadratic residue modulo 15, since it 
+does not appear in the second row of the table; there is no number x 
+such that x^2 = 7 (mod 15).
+
+Modulo 10, the quadratic residues are {0, 1, 4, 5, 6, 9}.  These are 
+the only possible unit digits for a perfect square.
+
+As (-x)^2 = x^2, the table has left-to-right symmetry; the residues 
+in the right half are the same as those in the left half.  This 
+already shows that there cannot be more than n/2 residues.
+
+If n = p is prime, however, we can say more. Let us look at a specific 
+example, p = 7:
+
+  x   |  0  1  2  3  4  5  6
+ -----+---------------------
+  x^2 |  0  1  4  2  2  4  1
+
+We see that the residues are 0, 1, 2, and 4 (0 is sometimes excluded 
+from the list as a special case). If p is prime, the equation:
+
+  x^2 = a   (mod p)
+
+cannot have more than 2 solutions.  Indeed, if x0 is one solution, we 
+have:
+
+               x^2 = x0^2     (mod p)
+      (x^2 - x0^2) = 0        (mod p)
+  (x - x0)(x + x0) = 0        (mod p)
+
+The last line shows that p divides the product (x - x0)(x + x0).  *As
+p is prime*, it must divide one of the factors, i.e., we must have
+either p | (x - x0) - which means x = x0, or p | (x + x0), which means
+x = -x0.  This shows that we can have at most two solutions, x0 and
+-x0.  If p > 2 and x is not 0, x0 and -x0 are different (mod p).  In
+that case, either we have no solution at all (a is a non-residue), or
+we have exactly two solutions (a is a residue).
+
+Note also that x^2 = 0 (mod p) has exactly one solution x = 0 (this 
+would not be the case if p were not prime, for example, x^2 = 0 has 3 
+solutions modulo 9: 0, 3, 6).
+
+To summarize, if we exclude 0, there are p - 1 columns in the table.
+In the second row, each entry is a number between 1 and p - 1, and
+appears twice (in symmetrical positions).  This means that half of the 
+available numbers [(p - 1)/2] do appear as quadratic residues, and the 
+other half do not appear in the second row and are non-residues.
+
+Does this help?  Write back if you'd like to talk about this some 
+more, or if you have any other questions.
