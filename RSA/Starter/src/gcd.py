@@ -54,8 +54,4 @@ def extended_gcd(a, b):
         (old_s, s) = (s, old_s - quotient * s)
         (old_t, t) = (t, old_t - quotient * t)
 
-    print("Euclid's Extended Algorithm: ")
-    print(f"Bézout coefficients:", (old_s, old_t))
-    print("GCD: ", old_r)
-    print("Quotients by GCD: ", (t, s))
-    return(old_s, old_t, old_r, t, s)
+    return(old_s, old_t, old_r)
