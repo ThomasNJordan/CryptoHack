@@ -34,7 +34,7 @@ else:
 # since only one prime number:
 n_tot = n - 1
 
-# Use EEuclid to fine coefficients
+# Use EEuclid to find coefficients
 from src.gcd import extended_gcd
 s, t, r = extended_gcd(e, n_tot)
 print("Coefficients: ", s, t)
