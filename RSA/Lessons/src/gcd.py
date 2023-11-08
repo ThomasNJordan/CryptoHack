@@ -55,3 +55,17 @@ def extended_gcd(a, b):
         (old_t, t) = (t, old_t - quotient * t)
 
     return(old_s, old_t, old_r)
+
+def reliable_ext_gcd(a, b):
+    # Base Case
+    if a == 0:
+        return b, 0, 1
+ 
+    # Recursive case
+    gcd, x1, y1 = reliable_ext_gcd(b % a, a)
+ 
+    # Update x and y using results of recursion
+    x = y1 - (b//a) * x1
+    y = x1
+ 
+    return gcd, x, y
