@@ -11,3 +11,5 @@ print(g * t % 991) # this is the correct one
 
 d = t % p
 print("d: ", d)
+
+5141855324824926969 + 8003835188138823828
